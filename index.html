@@ -554,9 +554,11 @@ function paintRunnerSanta(){
  // Profile and hat.
  oval(6,-35,9,9,'#7a4c4d');oval(7,-35,8.4,8.35,'#f2ad8b');
  oval(10.5,-31.7,6.5,5.4,'#fdf0df');oval(14,-34.2,2.8,2.3,'#f4b398');
- oval(11.4,-36.8,1.1,1.25,'#2f2333');
- ctx.fillStyle='#ce3547';ctx.beginPath();ctx.moveTo(-2,-41);ctx.quadraticCurveTo(-2,-51,8,-53);ctx.quadraticCurveTo(18,-53,17,-45);ctx.lineTo(14,-40);ctx.closePath();ctx.fill();
- ribbon([[-1,-41],[6,-41.3],[13,-42.5]],'#fff2dd',3.6);oval(17,-47,2.7,2.7,'#fff4df');
+ // A pointed black superhero mask leaves Santa's white beard exposed.
+ ctx.fillStyle='#241d31';ctx.beginPath();ctx.moveTo(-2,-36);ctx.lineTo(-2,-44);ctx.lineTo(1,-54);ctx.lineTo(5,-45);ctx.quadraticCurveTo(8,-47,11,-45);ctx.lineTo(14,-54);ctx.lineTo(16,-44);ctx.lineTo(17,-37);ctx.lineTo(14,-35);ctx.lineTo(11,-37.8);ctx.lineTo(5,-36);ctx.closePath();ctx.fill();
+ ribbon([[0,-44],[2,-49]],'#6c5e74',1.1);
+ ribbon([[11,-40],[14.2,-39]],'#fff4df',1.4);
+ oval(-3,-45,2.8,2.8,'#e44352');oval(-5.8,-45.6,2.1,2.1,'#fff3df');
  ctx.restore();
 }
 function paint(){
