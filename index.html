@@ -243,6 +243,23 @@ body{background:#fffcf7}.entry{position:relative;isolation:isolate;overflow:hidd
 @keyframes christmasBookSlow{0%,22%{transform:rotateY(0);opacity:1}43%{transform:rotateY(-21deg);opacity:1}70%{transform:rotateY(-64deg);opacity:1}94%{transform:rotateY(-103deg);opacity:0}100%{transform:rotateY(-109deg);opacity:0;visibility:hidden}}
 @media(max-width:420px){.orb-frame{padding-top:1rem}.orb-explanation{font-size:.94rem}.book-leaf{margin-right:.22rem}}
 @media(prefers-reduced-motion:reduce){.orb-replay{display:none}}
+
+.orb-vortex{position:absolute;inset:19% 17% 12%;z-index:1;opacity:0;border-radius:50%;background:repeating-conic-gradient(from 40deg,#d9eafb00 0 42deg,#eaf4ff9c 84deg,#e9fcff00 107deg);mask-image:radial-gradient(ellipse,transparent 20%,#000 61%,transparent 73%);transform-style:preserve-3d}
+.orb-dialog.orb-playing .orb-vortex{animation:orbSpiral .98s .13s ease-in-out both}
+@keyframes orbSpiral{0%{opacity:0;transform:perspective(125px) rotateX(58deg) rotate(0)}28%,70%{opacity:.66}100%{opacity:0;transform:perspective(125px) rotateX(47deg) rotate(710deg)}}
+.orb-dialog.orb-playing .orb-papers i{animation:orbPaperTornado 1.02s .13s ease-in-out both}
+@keyframes orbPaperTornado{
+0%,100%{transform:rotate(var(--tilt))}
+23%{transform:translate(var(--x),calc(var(--y) * .4)) rotate(78deg) scaleX(.66)}
+43%{transform:translate(calc(var(--x) * .03),calc(var(--y) * .9)) rotate(174deg) scaleX(.9)}
+64%{transform:translate(calc(var(--x) * -.82),calc(var(--y) * .64)) rotate(263deg) scaleX(.55)}
+81%{transform:translate(calc(var(--x) * -.25),calc(var(--y) * .12)) rotate(328deg)}
+}
+.orb-dialog.orb-playing .orb-letter{animation-delay:.83s}
+.orb-dialog.orb-playing .orb-explanation{font:clamp(.98rem,4vw,1.18rem)/1.54 Georgia,serif;animation-delay:1.66s}
+.turn-book-back .book-front{display:grid;animation:christmasBookReturn 1.8s cubic-bezier(.22,.51,.34,1) both}
+@keyframes christmasBookReturn{0%{transform:rotateY(-109deg);opacity:0}23%{transform:rotateY(-81deg);opacity:1}57%{transform:rotateY(-38deg);opacity:1}89%,100%{transform:rotateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.turn-book-back .book-front{display:none}}
 </style></head><body><main><section class="entry"><canvas class="foliage" aria-hidden="true"></canvas><div class="snow" aria-hidden="true"><i class="flake" style="--lane:0.24;--size:18px;--fall:11s;--start:-0.99s">❄︎</i><i class="flake" style="--lane:0.24;--size:19px;--fall:12s;--start:-8.50s">❄︎</i><i class="flake" style="--lane:0.54;--size:20px;--fall:13s;--start:-4.24s">❄︎</i><i class="flake" style="--lane:0.54;--size:21px;--fall:14s;--start:-13.22s">❄︎</i><i class="flake" style="--lane:0.77;--size:22px;--fall:15s;--start:-8.43s">❄︎</i><i class="flake" style="--lane:0.77;--size:23px;--fall:11s;--start:-1.98s">❄︎</i><i class="flake" style="--lane:0.24;--size:24px;--fall:12s;--start:-9.58s">❄︎</i><i class="flake" style="--lane:0.24;--size:18px;--fall:13s;--start:-5.41s">❄︎</i><i class="flake" style="--lane:0.54;--size:19px;--fall:14s;--start:-0.48s">❄︎</i><i class="flake" style="--lane:0.54;--size:20px;--fall:15s;--start:-9.78s">❄︎</i><i class="flake" style="--lane:0.77;--size:21px;--fall:11s;--start:-2.97s">❄︎</i><i class="flake" style="--lane:0.77;--size:22px;--fall:12s;--start:-10.66s">❄︎</i><i class="flake" style="--lane:0.24;--size:23px;--fall:13s;--start:-6.58s">❄︎</i><i class="flake" style="--lane:0.24;--size:24px;--fall:14s;--start:-1.74s">❄︎</i><i class="flake" style="--lane:0.54;--size:18px;--fall:15s;--start:-11.13s">❄︎</i><i class="flake" style="--lane:0.54;--size:19px;--fall:11s;--start:-3.96s">❄︎</i><i class="flake" style="--lane:0.77;--size:20px;--fall:12s;--start:-11.74s">❄︎</i><i class="flake" style="--lane:0.77;--size:21px;--fall:13s;--start:-7.75s">❄︎</i><i class="flake" style="--lane:0.24;--size:22px;--fall:14s;--start:-3.00s">❄︎</i><i class="flake" style="--lane:0.24;--size:23px;--fall:15s;--start:-12.48s">❄︎</i><i class="flake" style="--lane:0.54;--size:24px;--fall:11s;--start:-4.95s">❄︎</i><i class="flake" style="--lane:0.54;--size:18px;--fall:12s;--start:-0.82s">❄︎</i><i class="flake" style="--lane:0.77;--size:19px;--fall:13s;--start:-8.92s">❄︎</i><i class="flake" style="--lane:0.77;--size:20px;--fall:14s;--start:-4.26s">❄︎</i></div><span class="kicker dedication">Morales queridos, esta invitación es para ustedes</span><h1>Nochebuena <em>en familia</em></h1><p class="where">24 de diciembre de 2026 · 6:00 p. m.</p><button class="envelope" type="button" aria-label="Abrir la invitación de la familia Morales"><span class="insert" aria-hidden="true">Feliz Navidad<small>24 · XII · 2026</small></span><span class="front"></span><span class="flap"></span><span class="seal" aria-hidden="true">M</span><span aria-hidden="true"><span class="flare" style="--dx:130px;--dy:-45px;--wait:0.64s;--tilt:14deg">🎄</span><span class="flare" style="--dx:114px;--dy:-76px;--wait:0.69s;--tilt:-14deg">✨</span><span class="flare" style="--dx:70px;--dy:-99px;--wait:0.74s;--tilt:14deg">🎅</span><span class="flare" style="--dx:9px;--dy:-109px;--wait:0.78s;--tilt:-14deg">⭐</span><span class="flare" style="--dx:-54px;--dy:-104px;--wait:0.83s;--tilt:14deg">❄️</span><span class="flare" style="--dx:-104px;--dy:-83px;--wait:0.88s;--tilt:-14deg">🎁</span><span class="flare" style="--dx:-128px;--dy:-54px;--wait:0.93s;--tilt:14deg">✨</span><span class="flare" style="--dx:-121px;--dy:-22px;--wait:0.98s;--tilt:-14deg">🔔</span></span></button><button class="open-btn" type="button">Abrir mi sobre</button></section><section class="cover" tabindex="-1" hidden><div class="decor" aria-hidden="true"><i class="ball" style="--x:8%;--h:27vh;--s:88px;--delay:-2s;--swing:3.2s;--arc:7deg"></i><i class="ball" style="--x:18%;--h:12vh;--s:52px;--delay:-4s;--swing:2.35s;--arc:9deg"></i><i class="ball" style="--x:84%;--h:19vh;--s:70px;--delay:-1s;--swing:2.8s;--arc:8deg"></i><i class="ball" style="--x:94%;--h:37vh;--s:98px;--delay:-3s;--swing:3.65s;--arc:6deg"></i></div><div class="copy"><div class="star" aria-hidden="true">✧</div><div class="label">Estás invitado a nuestra</div><h1>Nochebuena</h1><span class="family">en familia</span><p class="intro">En nuestra mesa ya tienes un lugar. Nos hace ilusión compartir contigo los abrazos al llegar, las risas de los niños con la piñata y esa sobremesa que siempre se alarga un poquito más.</p><p class="signature">Te esperamos con mucho cariño</p><p class="date">24 de diciembre de 2026 · 6:00 p. m.</p><button class="button book-open" type="button" aria-controls="programa" aria-expanded="false">Abrir el programa</button><a class="podium-shortcut" href="#podio">🏆 Ver el podio familiar</a></div></section><section class="program" id="programa" hidden aria-labelledby="agenda"><div class="book-leaf">
 <div class="book-toolbar"><button type="button" class="book-back">Volver a la carta</button><span aria-hidden="true">✧</span></div>
 <header class="book-title"><span aria-hidden="true" class="star">✧</span><p>Navidad en familia · 24 de diciembre</p><h2 id="agenda" tabindex="-1">Así será nuestra noche</h2></header>
@@ -274,7 +291,7 @@ body{background:#fffcf7}.entry{position:relative;isolation:isolate;overflow:hidd
 <header class="orb-header"><p>Galletas y chocolates · 22:00 h</p><h3 id="orb-title">Un papelito, una sorpresa</h3><button class="orb-close" type="button" autofocus aria-label="Cerrar sorteo">×</button></header>
 <div class="orb-stage" aria-hidden="true">
 <span class="orb-stars">✦</span><div class="orb-ground"></div><div class="orb-assembly"><div class="orb-bowl">
-<div class="orb-papers"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="orb-planes"></div><div class="orb-light"></div><div class="orb-mouth"></div>
+<div class="orb-papers"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="orb-vortex"></div><div class="orb-planes"></div><div class="orb-light"></div><div class="orb-mouth"></div>
 </div><div class="orb-base"></div></div><div class="orb-letter"><span>✧</span><i></i><i></i></div>
 </div>
 <div id="orb-explanation" class="orb-explanation">En el intercambio sacarás un papelito en persona para saber a quién le darás tu regalo. Procura que la decoración y el detallito extra, si lo agregas, queden bien para quien te toque.</div>
@@ -298,9 +315,21 @@ function showBook(animate){
  bookHeading.focus({preventScroll:true});
 }
 openBook.addEventListener('click',()=>showBook(true));
+let leafBackTimer=0;
+function finishLeafBack(){
+ clearTimeout(leafBackTimer);leafBackTimer=0;
+ program.hidden=true;program.classList.remove('turn-book','turn-book-back');cover.hidden=false;openBook.setAttribute('aria-expanded','false');
+ window.scrollTo({top:0,behavior:'instant'});openBook.focus({preventScroll:true});
+}
 bookBack.addEventListener('click',()=>{
- program.hidden=true;program.classList.remove('turn-book');cover.hidden=false;openBook.setAttribute('aria-expanded','false');
- window.scrollTo({top:0,behavior:'instant'});openBook.focus();
+ if(leafBackTimer)return;
+ if(reduce.matches){finishLeafBack();return;}
+ window.scrollTo({top:0,behavior:'instant'});
+ program.classList.remove('turn-book');program.classList.add('turn-book-back');
+ leafBackTimer=setTimeout(finishLeafBack,1840);
+});
+program.querySelector('.book-front').addEventListener('animationend',event=>{
+ if(event.animationName==='christmasBookReturn'&&leafBackTimer)finishLeafBack();
 });
 document.querySelector('.podium-shortcut').addEventListener('click',event=>{
  event.preventDefault();showBook(false);
@@ -332,6 +361,7 @@ function drawSprigs(){
 }
 let letterTimers=[];
 function closeLetter(){
+ clearTimeout(leafBackTimer);leafBackTimer=0;program.classList.remove('turn-book-back');
  for(const timer of letterTimers)clearTimeout(timer);letterTimers=[];
  entry.classList.remove('opening','leaving');entry.hidden=false;cover.hidden=true;program.hidden=true;program.classList.remove('turn-book');openBook.setAttribute('aria-expanded','false');drawSprigs();window.scrollTo({top:0,behavior:'instant'});
 }
