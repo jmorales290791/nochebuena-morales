@@ -535,6 +535,8 @@ function paintRunnerSanta(){
  };
  ctx.save();ctx.translate(santaX,ground-height-bob);
  if(airborne)ctx.rotate(velocity>0?-.09:.07);
+ // Enlarge only the artwork, anchored at the runner's feet.
+ ctx.scale(1.23,1.30);
  // Sack behind the runner, with an outline readable against the rooftops.
  ctx.save();ctx.translate(-10,-20);ctx.rotate(moving?Math.sin(distance*.095+.85)*.13:-.10);
  oval(-5,0,11,13,'#573326');oval(-6,-1,9.2,11,'#c58a4a');oval(-9,-6,4.1,5.2,'#e8bd72');
@@ -551,20 +553,49 @@ function paintRunnerSanta(){
  const handX=airborne?15:13-stride*2, handY=airborne?-26:-20+stride*2;
  ribbon([[6,-25],[10,-22],[handX,handY]],'#b63144',5.7);
  oval(handX,handY,2.8,2.8,'#ffe3c7');
- // Profile and hat.
+ // A three-quarter cowl silhouette leaves Santa's nose and beard visible.
  oval(6,-35,9,9,'#7a4c4d');oval(7,-35,8.4,8.35,'#f2ad8b');
- oval(10.5,-31.7,6.5,5.4,'#fdf0df');oval(14,-34.2,2.8,2.3,'#f4b398');
- // A pointed black superhero mask leaves Santa's white beard exposed.
- ctx.fillStyle='#241d31';ctx.beginPath();ctx.moveTo(-2,-36);ctx.lineTo(-2,-44);ctx.lineTo(1,-54);ctx.lineTo(5,-45);ctx.quadraticCurveTo(8,-47,11,-45);ctx.lineTo(14,-54);ctx.lineTo(16,-44);ctx.lineTo(17,-37);ctx.lineTo(14,-35);ctx.lineTo(11,-37.8);ctx.lineTo(5,-36);ctx.closePath();ctx.fill();
- ribbon([[0,-44],[2,-49]],'#6c5e74',1.1);
- ribbon([[11,-40],[14.2,-39]],'#fff4df',1.4);
- oval(-3,-45,2.8,2.8,'#e44352');oval(-5.8,-45.6,2.1,2.1,'#fff3df');
+ oval(10.5,-31.7,6.5,5.4,'#fdf0df');oval(15,-34.2,2.8,2.3,'#f4b398');
+ const cowl=ctx.createLinearGradient(0,-53,13,-35);
+ cowl.addColorStop(0,'#49516d');cowl.addColorStop(.46,'#222536');cowl.addColorStop(1,'#101422');
+ ctx.fillStyle=cowl;ctx.strokeStyle='#858ca8';ctx.lineWidth=1.25;ctx.lineJoin='round';
+ ctx.beginPath();ctx.moveTo(-3,-36);ctx.lineTo(-3,-44);ctx.lineTo(-1,-56);ctx.lineTo(5,-46);ctx.quadraticCurveTo(9,-48,13,-46);ctx.lineTo(17,-56);ctx.lineTo(19,-44);ctx.lineTo(19,-36.8);ctx.lineTo(16,-35);ctx.lineTo(13,-37);ctx.lineTo(9,-36);ctx.lineTo(2,-38);ctx.closePath();ctx.fill();ctx.stroke();
+ ribbon([[-1,-43],[1,-49],[4,-44]],'#687694',1.1);
+ // Dark lower rim, saturated halo, and a near-white blue core.
+ const eyes=[[[1.2,-42],[7.3,-40.3]],[[11.1,-40.3],[17.2,-42.1]]];
+ for(const eye of eyes)ribbon(eye,'#101922',4.9);
+ ctx.save();ctx.shadowColor='#23aaff';ctx.shadowBlur=8;
+ for(const eye of eyes)ribbon(eye,'#149cf5',3.9);
+ ctx.restore();
+ for(const eye of eyes)ribbon(eye,'#c8fbff',2);
+ oval(-5,-45,2.6,2.6,'#e44352');oval(-7.5,-45.7,2.1,2.1,'#fff3df');
+ ctx.restore();
+}
+function paintHolidaySignal(){
+ ctx.save();
+ // A soft searchlight in the upper sky, clear of the running lane.
+ const beam=ctx.createLinearGradient(469,54,562,147);
+ beam.addColorStop(0,'rgba(151,213,255,.24)');beam.addColorStop(1,'rgba(151,213,255,.035)');
+ ctx.fillStyle=beam;ctx.beginPath();ctx.moveTo(423,64);ctx.quadraticCurveTo(430,21,508,38);ctx.lineTo(562,147);ctx.closePath();ctx.fill();
+ ctx.translate(465,54);ctx.rotate(-.14);
+ const halo=ctx.createRadialGradient(0,0,16,0,0,55);
+ halo.addColorStop(0,'rgba(195,229,255,.77)');halo.addColorStop(.68,'rgba(139,204,255,.33)');halo.addColorStop(1,'rgba(139,204,255,0)');
+ ctx.fillStyle=halo;ctx.fillRect(-56,-56,112,112);
+ const lens=ctx.createLinearGradient(0,-28,0,28);
+ lens.addColorStop(0,'#e4f7ff');lens.addColorStop(1,'#8abeeb');
+ ctx.fillStyle=lens;ctx.strokeStyle='#b7e3ff';ctx.lineWidth=1.3;ctx.beginPath();ctx.ellipse(0,0,42,29,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+ // An original flying-bat silhouette, dressed for Christmas.
+ ctx.fillStyle='#29243c';ctx.beginPath();ctx.moveTo(-33,-8);ctx.quadraticCurveTo(-23,-17,-12,-8);ctx.quadraticCurveTo(-10,-4,-6,-5);ctx.lineTo(-5,-12);ctx.lineTo(0,-8);ctx.lineTo(5,-12);ctx.lineTo(6,-5);ctx.quadraticCurveTo(10,-4,12,-8);ctx.quadraticCurveTo(23,-17,33,-8);ctx.quadraticCurveTo(25,-6,26,7);ctx.quadraticCurveTo(17,2,13,14);ctx.quadraticCurveTo(7,8,0,20);ctx.quadraticCurveTo(-7,8,-13,14);ctx.quadraticCurveTo(-17,2,-26,7);ctx.quadraticCurveTo(-25,-6,-33,-8);ctx.fill();
+ ctx.fillStyle='#bb2640';ctx.beginPath();ctx.moveTo(-11,-10);ctx.quadraticCurveTo(-10,-20,-4,-23);ctx.quadraticCurveTo(4,-28,12,-18);ctx.lineTo(15,-13);ctx.quadraticCurveTo(9,-17,6,-11);ctx.closePath();ctx.fill();
+ ctx.strokeStyle='#fff2d8';ctx.lineWidth=4.4;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(-11,-10);ctx.quadraticCurveTo(-3,-13,7,-10);ctx.stroke();
+ ctx.fillStyle='#fff9e8';ctx.beginPath();ctx.arc(15,-13,3.25,0,Math.PI*2);ctx.fill();
  ctx.restore();
 }
 function paint(){
  const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#28162b');sky.addColorStop(1,'#9d3d4c');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
- ctx.fillStyle='#fff1c5';ctx.beginPath();ctx.arc(504,52,20,0,2*Math.PI);ctx.fill();
+ ctx.fillStyle='#fff1c5';ctx.beginPath();ctx.arc(553,40,15,0,2*Math.PI);ctx.fill();
  for(let i=0;i<43;i++){const x=(i*83+W-distance*.09%W)%W,y=12+i*47%121;ctx.fillRect(x,y,2+i%2,2+i%2)}
+ paintHolidaySignal();
  for(let i=-1;i<12;i++){const x=i*73-distance*.22%73,y=132+Math.abs(i%3)*9;ctx.fillStyle='#492337';ctx.fillRect(x,y,67,ground-y);ctx.beginPath();ctx.moveTo(x-5,y);ctx.lineTo(x+29,y-20);ctx.lineTo(x+70,y);ctx.fill();ctx.fillStyle='#edc889';ctx.fillRect(x+16,y+12,7,10)}
  ctx.fillStyle='#fff7e8';ctx.fillRect(0,ground,W,8);ctx.fillStyle='#9b4951';ctx.fillRect(0,ground+8,W,38);ctx.strokeStyle='#c87772';ctx.beginPath();for(let i=-1;i<15;i++){const x=i*55-distance%55;ctx.moveTo(x,ground+8);ctx.lineTo(x-10,H)}ctx.stroke();
  for(const o of objects){if(o.kind==='gift'){
